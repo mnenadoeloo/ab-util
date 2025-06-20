@@ -1,0 +1,27 @@
+image:
+  repository: {{ .Helm.Release.Image }}
+  tag: {{ .Helm.Release.Tag }}
+  pullPolicy: IfNotPresent
+
+env:
+  ENV: {{ .Helm.Release.Environment }}
+  TZ: Europe/Moscow
+
+imagePullSecrets:
+  - name: harbor-registry-secret
+
+service:
+  enabled: true
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      name: http
+      targetPort: 8000
+      protocol: TCP
+
+prometheus:
+  serviceMonitor:
+    enabled: true
+    paths:
+      - port: http
+        path: /metrics

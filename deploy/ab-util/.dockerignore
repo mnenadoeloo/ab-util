@@ -1,0 +1,33 @@
+# Исключаем директорию mocks
+mocks/
+
+# Исключаем системные и временные файлы
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Исключаем окружения разработки
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Исключаем git и другие метаданные
+.git/
+.gitignore
+
+# Исключаем файлы документации
+README.md
+
+# Исключаем файлы IDE и редакторов
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Сам Dockerfile и .dockerignore
+Dockerfile
+.dockerignore 
